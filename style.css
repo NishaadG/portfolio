@@ -1,0 +1,633 @@
+/* --- [ ROOT & THEME ] --- */
+:root {
+    --primary-color: #00ffc3; /* A bright, techy mint/cyan */
+    --primary-light: #8effe5;
+    --primary-dark: #00a884;
+    --bg-color: #0a0a0a;       /* True black for high contrast */
+    --bg-medium: #111111;    /* Off-black for cards */
+    --bg-light: #1a1a1a;
+    --text-color: #eaeaea;
+    --text-muted: #888;
+    --border-color: #222;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-slow: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- [ GLOBAL RESET & SETUP ] --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-light) var(--bg-color);
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-light);
+    border-radius: 4px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- [ 3D BACKGROUND CANVAS ] --- */
+#three-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+/* This class will be added by JS when scrolling */
+body.scrolled #three-bg {
+    opacity: 0.1; /* Fade out the 3D canvas on scroll */
+}
+
+/* --- [ STICKY NAVIGATION ] --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    background: rgba(10, 10, 10, 0.7); /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    transition: var(--transition-fast);
+}
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color var(--transition-fast);
+}
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- [ HERO / HOME SECTION ] --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative; /* For scroll indicator */
+}
+.hero-content {
+    /* Animate the hero content itself */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin: 0.5rem 0 1rem 0;
+    max-width: 600px;
+}
+.learning-container {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.learning-container > span:first-child {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-right: 0.25rem;
+}
+.learning-tag {
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--bg-light);
+    color: var(--primary-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+.hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.hero-links a {
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+.hero-links a:hover {
+    color: var(--primary-light);
+    transform: scale(1.1);
+}
+.hero-links svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* --- [ CALL TO ACTION BUTTON ] --- */
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition-fast);
+}
+.cta-button:hover {
+    background: transparent;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+.cta-button.secondary {
+    background: transparent;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+.cta-button.secondary:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* --- [ SCROLL DOWN INDICATOR ] --- */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+.scroll-down-indicator span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+.mouse-icon {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--text-muted);
+    border-radius: 12px;
+    position: relative;
+}
+.wheel {
+    width: 4px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.5s infinite;
+}
+@keyframes scrollWheel {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 20px; opacity: 0; }
+}
+
+/* --- [ MAIN 2D CONTENT WRAPPER ] --- */
+.content-wrapper {
+    background: var(--bg-color); /* Solid background for 2D content */
+    position: relative; /* To stack on top of the z-index -1 canvas */
+    z-index: 10;
+}
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.content-section:last-child {
+    border-bottom: none;
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+}
+
+/* --- [ FADE-IN ANIMATIONS ] --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Stagger children animations */
+.hidden.show > * {
+    transition-delay: 0.3s;
+}
+
+/* --- [ ABOUT SECTION ] --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+    width: 100%;
+}
+.about-text {
+    flex: 2;
+}
+.about-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    max-width: 650px;
+}
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+.about-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+
+/* --- [ PROJECTS SECTION ] --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    text-align: left;
+}
+.project-card {
+    background: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-fast);
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-dark);
+}
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Makes footer stick to bottom */
+}
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+}
+.project-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+.project-metrics {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    list-style: none;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+.project-metrics li {
+    position: relative;
+    margin-bottom: 0.25rem;
+}
+.project-metrics li::before {
+    content: '•';
+    position: absolute;
+    left: -1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--bg-light);
+    color: var(--text-muted);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+.project-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+}
+.project-link:hover {
+    background: var(--bg-light);
+    color: var(--primary-light);
+    border-color: var(--primary-dark);
+}
+
+/* --- [ SKILLS SECTION ] --- */
+.skill-categories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    text-align: left;
+}
+.skill-category {
+    background: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+.skill-category h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-light);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+.skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.skill-grid span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--bg-light);
+    color: var(--text-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+}
+
+/* --- [ ACHIEVEMENTS SECTION ] --- */
+.rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.rank-card {
+    background: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.rank-platform {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+.rank-stat {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0.25rem 0;
+}
+.rank-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.achievements-list-container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: left;
+}
+.achievements-list-container h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-light);
+    margin-bottom: 1rem;
+}
+.achievements-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+.achievements-list li {
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+.achievements-list li::before {
+    content: '»';
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- [ CONTACT SECTION ] --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+}
+.contact-card {
+    background: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-dark);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.contact-card svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--primary-light);
+    margin-bottom: 1rem;
+}
+.contact-card span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.contact-card .contact-username {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+
+/* --- [ FOOTER ] --- */
+.footer {
+    padding: 2rem 5%;
+    text-align: center;
+    background: var(--bg-medium);
+    border-top: 1px solid var(--border-color);
+}
+.footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- [ RESPONSIVENESS ] --- */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simple responsive solution */
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .skill-categories-container {
+        grid-template-columns: 1fr;
+    }
+    .contact-buttons-container {
+        flex-direction: column;
+    }
+    .about-image-container {
+        margin-top: 2rem;
+    }
+    .hero-links {
+        gap: 1rem;
+    }
+    .hero-links svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* --- [ KEYFRAME ANIMATIONS ] --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

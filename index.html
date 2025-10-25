@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title reflects new focus -->
+    <title>Nishaad Gangal - Competitive Programmer & Developer</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main App Logic (defer ensures it runs after HTML parsing) -->
+    <script src="app.js" type="module" defer></script>
+</head>
+<body>
+
+    <!-- 3D Background Canvas (sits behind everything) -->
+    <canvas id="three-bg"></canvas>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#home" class="nav-logo">Nishaad Gangal</a>
+            <div class="nav-links">
+                <!-- ADDED: About link -->
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section (The 3D Hero) -->
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <img src="https://placehold.co/120x120/eeeeee/0d1117?text=NG" alt="Nishaad Gangal" class="profile-pic">
+            <h1 class="hero-title">Nishaad Gangal</h1>
+            <!-- UPDATED: Subtitle reflects new focus -->
+            <p class="hero-subtitle">
+                Competitive Programmer, AI Enthusiast, and Full-Stack Developer.
+            </p>
+            <!-- ADDED: Currently Learning section -->
+            <div class="learning-container">
+                <span>Currently Learning:</span>
+                <span class="learning-tag">Agentic AI</span>
+                <span class="learning-tag">Blockchain</span>
+                <span class="learning-tag">Neural Networks</span>
+            </div>
+            <div class="hero-links">
+                <!-- All your new profile links -->
+                <a href="https://github.com/NishaadG" target="_blank" title="GitHub">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>
+    
+                </a>
+                <a href="https://www.linkedin.com/in/nishaad-gangal-943210290/" target="_blank" title="LinkedIn">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+                <a href="https://codeforces.com/profile/The_One_Who" target="_blank" title="Codeforces">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 11.979C0 5.363 5.363 0 11.979 0c6.617 0 11.979 5.363 11.979 11.979 0 6.617-5.362 11.979-11.979 11.979C5.363 23.958 0 18.596 0 11.979zm11.979 10.363c5.72 0 10.363-4.643 10.363-10.363C22.342 6.26 17.699 1.617 11.98 1.617S1.617 6.26 1.617 11.98c0 5.72 4.643 10.362 10.362 10.362zM7 8.35h1.797v7.3H7V8.35zm4.009 0H12.8v7.3h-1.791V8.35zm4.008 0h1.797v7.3h-1.797V8.35z"/></svg>
+                </a>
+                <a href="https://www.codechef.com/users/theonewho" target="_blank" title="CodeChef">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.6 3.6v16.8H2.4V3.6h19.2M24 1.2H0v21.6h24V1.2zM8.331 8.016l-2.4 2.4 2.4 2.4-.8.8-2.4-2.4-2.4 2.4-.8-.8 2.4-2.4-2.4-2.4.8-.8 2.4 2.4 2.4-2.4.8.8zm7.338 0l-2.4 2.4 2.4 2.4-.8.8-2.4-2.4-2.4 2.4-.8-.8 2.4-2.4-2.4-2.4.8-.8 2.4 2.4 2.4-2.4.8.8z"/></svg>
+                </a>
+                <a href="https://leetcode.com/u/Nishaad/" target="_blank" title="LeetCode">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L.438 12.526a1.374 1.374 0 0 0 0 1.943l12.084 12.084a1.374 1.374 0 0 0 .961.438 1.37 1.37 0 0 0 .961-.438l12.084-12.084a1.374 1.374 0 0 0 0-1.943L14.444.438A1.37 1.37 0 0 0 13.483 0zm-.001 1.943l10.141 10.141-4.006 4.006-6.135-6.135L3.342 12.028l10.14-10.085zm0 20.114L3.342 11.916l4.006-4.006 6.135 6.135 4.141 4.141-10.14 10.085z"/></svg>
+                </a>
+                <!-- REMOVED GFG and AtCoder from hero links, will be in contact section -->
+            </div>
+            <a href="https://your-link-to-resume.pdf" target="_blank" class="cta-button">View My Resume</a>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content area (for all 2D sections) -->
+    <main class="content-wrapper">
+
+        <!-- ADDED: About Section -->
+        <section id="about" class="content-section">
+            <h2 class="section-title hidden">About Me</h2>
+            <div class="about-content hidden">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm Nishaad, an Information Technology undergraduate at PCCOE, Pune, graduating in 2027.
+                        My primary passion lies in competitive programming and algorithmic problem-solving, which has driven me to solve over 1000+ problems and achieve an Expert rating on Codeforces.
+                    </p>
+                    <p>
+                        Beyond algorithms, I apply this logical foundation to build real-world applications. I thrive in full-stack development (MERN stack) and am increasingly drawn to the complexities of AI and machine learning, particularly with Python, OpenCV, and YOLO. I'm always looking for the next challenge, whether it's in a contest or a complex project.
+                    </p>
+                </div>
+                <div class="about-image-container">
+                    <img src="photo1.jpg" alt="Nishaad Gangal" class="about-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h2 class="section-title hidden">My Projects</h2>
+            <div class="project-grid" id="project-grid-container">
+                <!-- Projects will be dynamically injected here by app.js -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="content-section">
+            <h2 class="section-title hidden">My Tech Stack</h2>
+            <p class="section-subtitle hidden">Core languages, frameworks, and tools in my arsenal.</p>
+            <div class="skill-categories-container hidden">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-grid">
+                        <span>C++</span>
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>Java</span>
+                        <span>C</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web & Frameworks</h3>
+                    <div class="skill-grid">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>MongoDB</span>
+                        <span>Tailwind CSS</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies & Tools</h3>
+                    <div class="skill-grid">
+                        <span>OpenCV</span>
+                        <span>YOLOv8</span>
+                        <span>Scikit-Learn</span>
+                        <span>TensorFlow</span>
+                        <span>Git & GitHub</span>
+                        <span>VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="content-section">
+            <h2 class="section-title hidden">Achievements</h2>
+            <p class="section-subtitle hidden">My performance in the competitive programming space.</p>
+            <div class="rankings-grid hidden">
+                <div class="rank-card">
+                    <span class="rank-platform">Codeforces</span>
+                    <span class="rank-stat">Expert (1640)</span>
+                    <span class="rank-sub">Top 10% Worldwide</span>
+                </div>
+                <div class="rank-card">
+                    <span class="rank-platform">CodeChef</span>
+                    <span class="rank-stat">4-Star (1842)</span>
+                    <span class="rank-sub">Top 5% Nationally</span>
+                </div>
+                <div class="rank-card">
+                    <span class="rank-platform">LeetCode</span>
+                    <span class="rank-stat">1806 Rating</span>
+                    <span class="rank-sub">500+ Problems Solved</span>
+                </div>
+            </div>
+            <div class="achievements-list-container hidden">
+                <h3>Notable Contests & Wins</h3>
+                <ul class="achievements-list">
+                    <li>Solved 1000+ problems and participated in 40+ contests across various platforms.</li>
+                    <li>CF Round 1016 Div3: Ranked 454 out of 30,000+ participants.</li>
+                    <li>IICPC Prelims 2025: Achieved an All-India Rank of 1050 among 15,000+ participants.</li>
+                    <li>FizzBuzz Contest: Stood 10th out of 150+ participants in IIT Goa’s coding competition.</li>
+                    <li>Won "Software with Nicks" correlation competition.</li>
+                    <li>Qualified for Meta Hacker Cup 2025 Round 2, with a rank of 2427 out of 13k+ participants</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2 class="section-title hidden">Get In Touch</h2>
+            <!-- UPDATED: More engaging subtitle -->
+            <p class="section-subtitle hidden">
+                Have an interesting problem? A new opportunity? Or just want to talk code?
+                <br>Let's connect.
+            </p>
+            <!-- UPDATED: Replaced buttons with a full contact grid -->
+            <div class="contact-grid hidden">
+                <!-- Email -->
+                <a href="mailto:nishaadgangal@gmail.com?subject=Hello from your portfolio!" class="contact-card">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                    <span>Email Me</span>
+                    <span class="contact-username">nishaadgangal@gmail.com</span>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/nishaad-gangal-943210290/" target="_blank" class="contact-card">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    <span>LinkedIn</span>
+                    <span class="contact-username">nishaad-gangal</span>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/NishaadG" target="_blank" class="contact-card">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>
+                    <span>GitHub</span>
+                    <span class="contact-username">NishaadG</span>
+                </a>
+                <!-- Kaggle -->
+                <a href="https://www.kaggle.com/nishaadg" target="_blank" class="contact-card">
+                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.004 20.378l-4.11-4.11-4.28 4.28-4.11-4.11 4.28-4.28-4.28-4.28 4.11-4.11 4.28 4.28 4.11-4.11 4.11 4.11-4.28 4.28 4.28 4.28-4.11 4.11-4.28-4.28 4.11 4.11z"/></svg>
+                    <span>Kaggle</span>
+                    <span class="contact-username">your-username</span>
+                </a>
+                <!-- GeeksforGeeks -->
+                <a href="https://www.geeksforgeeks.org/user/nishaadg/" target="_blank" class="contact-card">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.603 0a1.54 1.54 0 0 0-1.08.446L.45 10.37a1.54 1.54 0 0 0 0 2.18l10.073 9.924a1.54 1.54 0 0 0 2.16 0l10.073-9.924a1.54 1.54 0 0 0 0-2.18L12.682.446a1.54 1.54 0 0 0-1.08-.446zM18.8 17.08l-5.657-5.61 5.657-5.568v11.178zM11.603 1.62l8.91 8.85-8.91 8.76-8.91-8.76 8.91-8.85zM4.15 17.08V5.9L9.8 11.49l-5.65 5.59z"/></svg>
+                    <span>GeeksforGeeks</span>
+                    <span class="contact-username">nishaadg</span>
+                </a>
+                <!-- AtCoder -->
+                <a href="https://atcoder.jp/users/The_One_Who" target="_blank" class="contact-card">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L1.606 6v12L12 24l10.394-6V6L12 0zm0 1.25L20.788 6 12 10.75 3.212 6 12 1.25zm-9.144 6L12 12.922 21.144 7.25l-9.144 5.25v10.25L3.212 17.5V7.25z"/></svg>
+                    <span>AtCoder</span>
+                    <span class="contact-username">The_One_Who</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Nishaad Gangal. Built from scratch.</p>
+    </footer>
+
+</body>
+</html>
+
